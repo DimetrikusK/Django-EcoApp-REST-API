@@ -1,0 +1,5 @@
+<ul>
+    {% for card in course.ecocard_set.all %}
+    <li><a href="{% url 'eco:soviet_list' card.id %}">{{ card.title }}</a></li>
+    {% endfor %}
+</ul>

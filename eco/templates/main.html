@@ -1,0 +1,7 @@
+{% if list %}
+<ul>
+    {% for course in list %}
+    <li><a href="{% url 'eco:card' course.id %}">{{ course.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

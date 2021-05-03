@@ -1,0 +1,6 @@
+<ul>
+    {% for soviet in ecocard.ecosoviet_set.all %}
+    <li><h2>{{ soviet.title }}</h2></li>
+        <p>{{ soviet.description }}</p>
+    {% endfor %}
+</ul>
