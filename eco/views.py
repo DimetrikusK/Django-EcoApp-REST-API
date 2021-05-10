@@ -14,33 +14,38 @@ from .urls import *
 
 class CourseListView(APIView):
 
-    # Cписок курсов
+    """Cписок курсов"""
+
     def get(self, request):
         course = Course.objects.all()
         serializer = CourseListSerializer(course, many=True)
         return Response(serializer.data)
 
-    # Передаем id курса для вывода спика карт
+    """Передаем id курса для вывода спика карт"""
+
     def post(self, request):
         return redirect(reverse(f'eco:card', args=[request.data]))
 
 
 class EcoCardListView(APIView):
 
-    # Список карт
+    """Список карт"""
+
     def get(self, request, pk):
         card = Ecocard.objects.filter(coursenameid=pk)
         serializer = EcoCardListSerializer(card, many=True)
         return Response(serializer.data)
 
-    # Передаем id карты для вывода списка советов
+    """Передаем id карты для вывода списка советов"""
+
     def post(self, request, pk):
         return redirect(reverse(f'eco:soviet_list', args=[request.data]))
 
 
 class EcoSovietListView(APIView):
 
-    # Вывод советов
+    """Вывод советов"""
+
     def get(self, request, pk):
         soviet = Ecosoviet.objects.filter(cardnameid=pk)
         serializer = EcoSovietListSerializer(soviet, many=True)

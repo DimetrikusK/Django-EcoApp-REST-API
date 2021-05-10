@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from rest_framework.templatetags import rest_framework
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'zkfdg@0kci^n)qdxppts=fyv0n(5sewv#rdd2lt&5!6b%w3s^#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,6 +42,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'eco',
 ]
+
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#     # 'rest_framework.authentication.TokenAuthentication',
+#     'rest_framework.authentication.SessionAuthentication',
+# ]
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
